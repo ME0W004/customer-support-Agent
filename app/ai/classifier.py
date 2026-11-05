@@ -11,26 +11,26 @@ os.environ["GEMINI_API_KEY"] = settings.GEMINI_API_KEY
 os.environ["PYDANTIC_AI_NO_BANNER"] = "1"
 
 CLASSIFIER_SYSTEM_PROMPT = """
-شما یک سیستم هوشمند دسته‌بندی ایمیل‌های ورودی پشتیبانی مشتریان شرکت نرم‌افزاری ابری «ابریار» (CloudYar) هستید.
-وظیفه شما این است که موضوع و متن ایمیل دریافتی را تحلیل کرده و اطلاعات ساختاریافته زیر را استخراج کنید:
+You are an intelligent email triage and intent classifier for the enterprise SaaS platform "CloudScale AI".
+Your responsibility is to analyze incoming customer support emails and extract structured metadata:
 
-1. section: بخش مرتبط از پایگاه دانش:
-   - products: سوالات پیرامون پلن‌های اشتراک (Starter, Pro, Enterprise)، قیمت‌ها، قابلیت‌ها، سهمیه API، امکانات اتوماسیون، ماژول CRM و بسته‌های افزودنی.
-   - shipping: فعال‌سازی آنی لایسنس، روش‌های پرداخت آنلاین/پایا، دریافت صورت‌حساب، صدور فاکتور رسمی مالیاتی سامانه مودیان و چرخه تمدید اشتراک.
-   - returns: درخواست استرداد و عودت وجه، ضمانت بازگشت پول ۱۴ روزه، لغو اشتراک و تسویه‌حساب دوره‌های سالانه.
-   - warranty: توافق‌نامه سطح خدمات (SLA)، تضمین پایداری و آپ‌تایم ۹۹.۹٪، جبران خسارت قطعی، پشتیبان‌گیری منظم دیتابیس و امنیت اطلاعات.
-   - faq: سوالات متداول فنی، کلید API و خطای 429، تنظیم وب‌هوک، درون‌ریزی داده‌ها (Migration)، بازیابی اکانت، احراز هویت دومرحله‌ای (2FA) و ساعات کاری.
-   - general: مواردی که به پشتیبانی ربط دارد اما بخش اختصاصی مشخصی در پایگاه دانش ندارد.
-   - irrelevant: ایمیل‌های اسپم، تبلیغاتی، بازاریابی، پیام‌های تست نامفهوم یا بی‌ربط.
+1. section: The most relevant knowledge base section slug:
+   - products: Inquiries about subscription tiers (Starter, Pro, Enterprise), pricing, features, API quotas, CRM capabilities, and add-ons.
+   - shipping: Digital license provisioning, automated billing cycles, payment methods, tax invoices, VAT exemption, and receipts.
+   - returns: Refund requests, 14-day money-back guarantee, cancellation policies, and annual prorated settlements.
+   - warranty: Service Level Agreements (SLA), 99.95% uptime commitment, automated 6-hour backups, security architecture, and incident response.
+   - faq: Developer troubleshooting, API keys, HTTP 429 rate limits, webhooks, workspace migration (Jira/Trello/Asana), RBAC roles, and 2FA recovery.
+   - general: Legitimate support inquiries that do not map specifically to one of the 5 dedicated sections.
+   - irrelevant: Spam, SEO solicitations, promotional marketing, meaningless test messages, or automated noise.
 
 2. is_support_request:
-   اگر ایمیل یک پیام واقعی از سمت مشتری است true، اگر اسپم، پیام تست بی‌معنی یا تبلیغات است false.
+   Set to true if this is an authentic inquiry or support request from a human user. False for spam, automated newsletters, or bot bounces.
 
 3. customer_sentiment:
-   لحن مشتری: satisfied (راضی/تشکر), neutral (معمولی/خنثی), confused (سردرگم/سوالی), angry (عصبانی/ناراضی), urgent (فوری).
+   The emotional tone of the sender: satisfied, neutral, confused, angry, or urgent.
 
 4. summary:
-   خلاصه کوتاه ۱ خطی به زبان فارسی از خواسته مشتری.
+   A concise, one-sentence English summary describing the customer's core intent or problem.
 """
 
 classifier_agent = Agent(
@@ -47,6 +47,6 @@ classifier_agent = Agent(
 )
 def classify_email(subject: str, body: str) -> Classification:
     """Classifies an incoming customer email with automatic retry on temporary errors."""
-    user_prompt = f"موضوع ایمیل: {subject}\n\nمتن ایمیل:\n{body}"
+    user_prompt = f"Subject: {subject}\n\nEmail Body:\n{body}"
     result = classifier_agent.run_sync(user_prompt)
     return result.output

@@ -32,14 +32,14 @@ class Classification(BaseModel):
         description="The detected emotional tone of the customer."
     )
     summary: str = Field(
-        description="A concise one-line summary in Persian explaining what the customer is asking."
+        description="A concise one-line summary in English explaining what the customer is asking."
     )
 
 
 class AgentReply(BaseModel):
     """Structured response drafted by the support agent."""
     reply_text: str = Field(
-        description="The polite, professional Persian reply to be sent to the customer."
+        description="The polite, professional English reply to be sent to the customer."
     )
     is_resolved: bool = Field(
         description="True if the customer's question was completely answered using facts in the knowledge base."

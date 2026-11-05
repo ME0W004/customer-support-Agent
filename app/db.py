@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from pathlib import Path
 import logging
 from typing import Any
 from supabase import create_client, Client
@@ -101,19 +102,39 @@ def update_ticket_status(ticket_id: str, status: str, category: str | None = Non
 
 
 def get_knowledge_base_section(slug: str) -> str | None:
-    """Fetches the markdown content for a given knowledge base slug."""
-    sb = get_client()
-    res = sb.table("knowledge_base").select("content").eq("slug", slug).execute()
-    if res.data and len(res.data) > 0:
-        return res.data[0]["content"]
+    """Fetches the markdown content for a given knowledge base slug with local file fallback."""
+    try:
+        sb = get_client()
+        res = sb.table("knowledge_base").select("content").eq("slug", slug).execute()
+        if res.data and len(res.data) > 0:
+            return res.data[0]["content"]
+    except Exception as e:
+        logger.warning(f"Could not fetch section '{slug}' from Supabase ({e}), using local file fallback.")
+
+    local_file = Path("app/knowledge_base/sections") / f"{slug}.md"
+    if local_file.exists():
+        return local_file.read_text(encoding="utf-8")
     return None
 
 
 def list_knowledge_base_sections() -> list[dict[str, Any]]:
-    """Returns all knowledge base articles."""
-    sb = get_client()
-    res = sb.table("knowledge_base").select("id, slug, title, updated_at").execute()
-    return res.data or []
+    """Returns all knowledge base articles with local fallback."""
+    try:
+        sb = get_client()
+        res = sb.table("knowledge_base").select("id, slug, title, updated_at").execute()
+        if res.data:
+            return res.data
+    except Exception as e:
+        logger.warning(f"Could not list KB sections from Supabase ({e}), using local metadata fallback.")
+
+    sections = [
+        {"slug": "products", "title": "CloudScale AI Subscription Plans, Features & Add-ons"},
+        {"slug": "shipping", "title": "Digital Provisioning, Billing & Tax Invoicing"},
+        {"slug": "returns", "title": "14-Day Money-Back Guarantee, Refunds & Cancellation"},
+        {"slug": "warranty", "title": "Service Level Agreement (SLA), Security & Uptime Commitment"},
+        {"slug": "faq", "title": "Developer FAQs, API Key Management & Troubleshooting"},
+    ]
+    return sections
 
 
 def upsert_knowledge_base_section(slug: str, title: str, content: str) -> None:

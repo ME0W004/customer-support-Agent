@@ -10,34 +10,34 @@ from app.db import upsert_knowledge_base_section, list_knowledge_base_sections
 SECTIONS = [
     {
         "slug": "products",
-        "title": "راهنمای پلن‌های اشتراک، امکانات و مشخصات فنی ابریار",
+        "title": "CloudScale AI Subscription Plans, Features & Add-ons",
         "file": "products.md"
     },
     {
         "slug": "shipping",
-        "title": "فعال‌سازی سرویس، تحویل آنی لایسنس و صدور صورت‌حساب رسمی",
+        "title": "Digital Provisioning, Billing & Tax Invoicing",
         "file": "shipping.md"
     },
     {
         "slug": "returns",
-        "title": "ضمانت بازگشت وجه ۱۴ روزه و قوانین لغو اشتراک",
+        "title": "14-Day Money-Back Guarantee, Refunds & Cancellation",
         "file": "returns.md"
     },
     {
         "slug": "warranty",
-        "title": "موافقت‌نامه سطح خدمات (SLA)، پایداری و امنیت داده‌ها",
+        "title": "Service Level Agreement (SLA), Security & Uptime Commitment",
         "file": "warranty.md"
     },
     {
         "slug": "faq",
-        "title": "پرسش‌های متداول، راهنمای API و رفع اشکال حساب کاربری",
+        "title": "Developer FAQs, API Key Management & Troubleshooting",
         "file": "faq.md"
     }
 ]
 
 def main():
     base_dir = Path("app/knowledge_base/sections")
-    print("Seeding Knowledge Base for CloudYar (ابریار) into Supabase...")
+    print("Seeding Knowledge Base for CloudScale AI (International Version) into Supabase...")
     
     for sec in SECTIONS:
         file_path = base_dir / sec["file"]

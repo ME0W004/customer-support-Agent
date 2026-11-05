@@ -1,24 +1,29 @@
-# شرایط ضمانت بازگشت وجه ۱۴ روزه و قوانین لغو اشتراک
+# CloudScale AI — 14-Day Money-Back Guarantee, Refund Policy & Cancellation
 
-در ابریار رضایت کامل مشتریان اولویت مطلق ماست. به همین دلیل تمامی خریدهای اشتراک اولیه مشمول ضمانت قطعی بازگشت وجه هستند.
-
----
-
-## ۱. ضمانت بازگشت وجه ۱۴ روزه (۱۰۰٪ بدون قید و شرط):
-- کلیه مشترکین جدید پلن‌های ماهانه و سالانه، از زمان پرداخت اولیه تا **۱۴ روز تقویمی** فرصت دارند در صورت عدم رضایت یا عدم انطباق نرم‌افزار با نیازهایشان، درخواست انصراف و استرداد کامل وجه ثبت نمایند.
-- عودت وجه در این بازه ۱۴ روزه بدون نیاز به ذکر دلیل و بدون کسر حتی یک ریال کارمزد انجام می‌شود.
+Customer trust and product confidence are paramount at CloudScale AI. We offer transparent and generous cancellation and refund policies.
 
 ---
 
-## ۲. قوانین لغو پس از پایان دوره ۱۴ روزه:
-1. **پلن‌های ماهانه:**
-   - لغو در طول ماه منجر به استرداد وجه نمی‌شود، اما با غیرفعال کردن تمدید خودکار، سرویس تا انتهای ماه جاری فعال مانده و برای ماه بعد هیچ هزینه‌ای کسر نخواهد شد.
-2. **پلن‌های سالانه:**
-   - در صورت تمایل به لغو در میانه سال، ماه‌های سپری‌شده بر مبنای تعرفه عادی (بدون تخفیف سالانه) محاسبه گردیده و باقی‌مانده مبلغ به حساب کاربر واریز می‌گردد.
+## 1. 14-Day 100% Money-Back Guarantee (No Questions Asked)
+- All new subscribers (both monthly and annual plans across Starter and Pro tiers) are protected by our **14-day 100% unconditional money-back guarantee**.
+- If within the first 14 calendar days from initial purchase CloudScale AI does not meet your expectations or operational requirements, you may request a complete refund.
+- Refunds processed under the 14-day guarantee are refunded 100% to the original payment method without cancellation fees or penalties.
 
 ---
 
-## ۳. فرآیند استرداد وجه و واریز به حساب:
-- برای ثبت درخواست استرداد وجه، کافیست از طریق ایمیل ثبت‌شده حساب کاربری خود، شماره فاکتور یا کد اشتراک را همراه با **شماره شبای بانکی ۲۴ رقمی (به نام صاحب حساب یا شخص حقوقی)** برای ما ارسال کنید.
-- تمامی درخواست‌های استرداد به دلیل حساسیت‌های تراکنش بانکی توسط واحد مالی به صورت دستی بررسی و حداکثر ظرف **۲۴ الی ۴۸ ساعت کاری** تسویه و فیش واریز پیامک/ایمیل می‌شود.
-- به همراه استرداد وجه، لینک دانلود خروجی کامل داده‌ها (Full Data Export در قالب JSON / Excel) به مدت ۴۸ ساعت برای شما فعال خواهد ماند تا اطلاعات کاری شما از بین نرود.
+## 2. Cancellation & Post-14-Day Refund Terms
+1. **Monthly Subscriptions:**
+   - You may cancel your subscription at any time with a single click in **Workspace Settings > Plan & Billing**.
+   - Upon cancellation, recurring billing stops immediately, and your workspace remains active until the end of the current paid billing cycle. No further charges will be incurred.
+2. **Annual Subscriptions:**
+   - If an annual customer requests cancellation after the initial 14-day window due to organizational restructuring or project discontinuation, unused full months can be refunded calculated on standard non-discounted monthly rates, or credited toward future platform services.
+
+---
+
+## 3. Refund Processing & Data Protection Guarantee
+- **How to Initiate a Refund:**
+  - Submit your refund request from the registered account owner's email address, citing your **Invoice Number** or **Organization ID**.
+  - All financial refunds involve direct bank/card transaction reversals and are securely reviewed by our finance team, typically processed within **24 to 48 business hours**.
+- **Data Export Guarantee:**
+  - When an account is canceled or refunded, CloudScale AI guarantees that your team's historical data will not be immediately deleted.
+  - A secure **Full Data Export link (JSON, CSV, and attachments zip)** remains active for 48 hours to ensure you have a complete offline backup of your corporate data.

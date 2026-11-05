@@ -113,12 +113,13 @@ def process_message(client: GmailClient, message_item: dict[str, str]) -> dict[s
         update_ticket_status(ticket_id, status="escalated", category=classification.section)
         
         escalation_email = (
-            f"با سلام و احترام،\n\n"
-            f"پیام شما با شماره تیکت [{ticket_short_id}] با موفقیت ثبت شد.\n"
-            f"با توجه به اینکه درخواست شما نیاز به هماهنگی با کارشناسان مربوطه دارد، "
-            f"پرونده به تیم تخصصی ارجاع گردید و همکاران ما در اولین فرصت با شما در ارتباط خواهند بود.\n\n"
-            f"پیشاپیش از صبوری شما سپاسگزاریم.\n"
-            f"تیم پشتیبانی مشتریان"
+            f"Dear Customer,\n\n"
+            f"Thank you for contacting CloudScale AI Support. Your inquiry has been logged under Ticket ID [{ticket_short_id}].\n"
+            f"Because your request requires specialized administrative review (Billing Operations / Technical Engineering), "
+            f"your file has been prioritized and routed to our dedicated specialist team. A senior specialist will follow up with you shortly.\n\n"
+            f"Thank you for your patience and for choosing CloudScale AI.\n\n"
+            f"Best regards,\n"
+            f"CloudScale AI Customer Success & Support Team"
         )
         
         sent_msg = client.send_reply(

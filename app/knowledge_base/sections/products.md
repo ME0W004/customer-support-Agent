@@ -1,44 +1,44 @@
-# راهنمای پلن‌های اشتراک، قابلیت‌ها و مشخصات فنی پلتفرم ابریار (CloudYar)
+# CloudScale AI — Subscription Plans, Features & Platform Specifications
 
-سامانه ابریار یک پلتفرم یکپارچه ابری برای مدیریت پروژه، اتوماسیون فرآیندها و مدیریت ارتباط با مشتریان (CRM) است. کلیه سرویس‌ها به صورت ابری (Cloud-native) ارائه شده و بدون نیاز به نصب سرور محلی در دسترس هستند.
-
----
-
-## ۱. مقایسه جامع پلن‌های اشتراک:
-
-### ۱. پلن استارتر (Starter) — ۴۹۰,۰۰۰ تومان در ماه (۲۰٪ تخفیف در پرداخت سالانه)
-- **مخاطبان:** فریلنسرها، تیم‌های نوپا و پروژه‌های فردی (تا ۳ کاربر همزمان).
-- **امکانات اصلی:**
-  - مدیریت حداکثر ۱۰ پروژه فعال و بردهای نامحدود کانبان (Kanban).
-  - ۵ گیگابایت فضای ابری ذخیره‌سازی اسناد و فایل‌های پیوست.
-  - حداکثر ۵ سناریوی اتوماسیون گردش‌کار در ماه.
-  - دسترسی به REST API با محدودیت ۱۰۰ درخواست در هر ساعت (Rate Limit: 100 req/h).
-  - پشتیبانی تیکتی و ایمیلی در ساعات اداری (شنبه تا چهارشنبه ۹ الی ۱۷).
-
-### ۲. پلن حرفه‌ای (Pro) — ۱,۴۹۰,۰۰۰ تومان در ماه (۲۵٪ تخفیف در پرداخت سالانه) — پرفروش‌ترین
-- **مخاطبان:** استارتاپ‌ها، شرکت‌های کوچک و متوسط (SMEs) تا ۲۰ کاربر.
-- **امکانات اصلی:**
-  - پروژه‌ها و تسک‌های نامحدود به همراه چارت گانت (Gantt Chart) پیشرفته.
-  - ۵۰ گیگابایت فضای ابری پرسرعت اختصاصی.
-  - اتوماسیون گردش‌کار نامحدود و وب‌هوک‌های لحظه‌ای (Real-time Webhooks).
-  - دسترسی کامل به API با سقف ۵,۰۰۰ درخواست در هر ساعت.
-  - ماژول پیشرفته CRM شامل مدیریت سرنخ‌ها، خط لوله فروش (Pipeline) و گزارش‌گیری عملکرد تیم.
-  - پشتیبانی ۲۴ ساعته تیکتی و اولویت پاسخگویی زیر ۲ ساعت.
-
-### ۳. پلن سازمانی (Enterprise) — قیمت سفارشی با قرارداد سالانه
-- **مخاطبان:** هلدینگ‌ها، بانک‌ها، سازمان‌ها و شرکت‌های بزرگ (کاربران نامحدود).
-- **امکانات اصلی:**
-  - تعداد کاربران و پروژه‌های نامحدود با فضای ابری اختصاصی و نامحدود.
-  - امکان استقرار روی زیرساخت سرور اختصاصی و ایزوله (Private Cloud / VPC).
-  - ورود یکپارچه سازمانی با پروتکل‌های SSO، SAML 2.0 و Active Directory.
-  - دسترسی اختصاصی به API با لودبالانسر مجزا و محدودیت سفارشی (بیش از ۵۰,۰۰۰ درخواست در ساعت).
-  - تضمین سطح کیفیت خدمات (SLA) رسمی ۹۹.۹۵٪ همراه با جریمه نقدی در صورت قطعی.
-  - مدیر حساب کاربری اختصاصی (Dedicated Account Manager) و خط تماس تلفنی مستقیم ۲۴/۷.
+CloudScale AI is a next-generation enterprise cloud platform designed for end-to-end workflow automation, omnichannel customer relationship management (CRM), and real-time team orchestration. All services are 100% cloud-native, requiring zero local infrastructure or on-premise maintenance.
 
 ---
 
-## ۲. بسته‌های افزودنی (Add-ons):
-- **بسته کاربر اضافه:** هر کاربر مازاد در پلن Pro ماهانه ۹۰,۰۰۰ تومان.
-- **بسته ۵۰ گیگابایت فضای ذخیره‌سازی ابری مازاد:** ماهانه ۱۵۰,۰۰۰ تومان.
-- **بسته ظرفیت API مازاد (۱۰,۰۰۰ درخواست در ساعت):** ماهانه ۳۰۰,۰۰۰ تومان.
-- **ماژول پیامک و واتس‌اپ هوشمند ابری:** قابلیت اتصال به خط اختصاصی خدماتی بدون نیاز به سفته.
+## 1. Subscription Tiers Overview
+
+### 1. Starter Tier — $29 / month ($24 / month billed annually)
+- **Target Audience:** Freelancers, early-stage startups, and small teams (up to 3 team members).
+- **Core Capabilities:**
+  - Up to 10 active projects with unlimited Kanban boards.
+  - 5 GB high-performance secure cloud storage for documents and attachments.
+  - Up to 5 automated workflow rules per month.
+  - Standard REST API access with a rate limit of 1,000 requests per hour.
+  - Standard email ticketing support during business hours (Monday–Friday, 9:00 AM – 5:00 PM EST).
+
+### 2. Professional (Pro) Tier — $89 / month ($72 / month billed annually) — *Most Popular*
+- **Target Audience:** Rapidly scaling companies, agencies, and mid-sized businesses (up to 20 team members).
+- **Core Capabilities:**
+  - Unlimited projects, tasks, and subtasks with advanced interactive Gantt charts and workload tracking.
+  - 50 GB dedicated high-speed cloud storage.
+  - Unlimited automated workflow triggers, multi-step actions, and real-time Webhooks.
+  - Comprehensive Omnichannel CRM module: lead scoring, deal pipelines, customer interaction logs, and revenue analytics.
+  - High-throughput REST & GraphQL API access capped at 25,000 requests per hour.
+  - 24/7 priority ticketing support with a guaranteed first-response time under 2 hours.
+
+### 3. Enterprise Tier — Custom Annual Agreement
+- **Target Audience:** Large enterprises, financial institutions, healthcare providers, and high-security organizations (unlimited seats).
+- **Core Capabilities:**
+  - Unlimited seats, workspaces, projects, and custom storage scaling.
+  - Dedicated virtual private cloud (VPC) deployment or multi-region data residency (US-East, EU-Central, AP-Southeast).
+  - Single Sign-On (SSO) with SAML 2.0, Okta, Microsoft Azure AD, Google Workspace, and SCIM directory provisioning.
+  - Dedicated API load balancer with custom throughput (50,000+ requests per hour).
+  - 99.95% financially backed Service Level Agreement (SLA) with automatic credit payouts.
+  - Dedicated Technical Account Manager (TAM) and 24/7 direct phone and emergency Slack/Teams bridge.
+
+---
+
+## 2. Scalable Add-ons & Capacity Extensions
+- **Additional Team Seat:** $15 per user / month (available for Pro tier).
+- **Extra Cloud Storage:** $20 per month per additional 100 GB tier.
+- **API Throughput Booster (Extra 25,000 req/hr):** $50 per month.
+- **Enterprise AI Agent Module:** Custom AI copilot integration for workflow synthesis and intelligent ticket classification.

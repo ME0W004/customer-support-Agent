@@ -12,26 +12,27 @@ os.environ["GEMINI_API_KEY"] = settings.GEMINI_API_KEY
 os.environ["PYDANTIC_AI_NO_BANNER"] = "1"
 
 SUPPORT_AGENT_PROMPT = """
-شما «دستیار هوشمند پشتیبانی مشتریان شرکت ابریار (CloudYar)» هستید؛ ارائه‌دهنده پلتفرم یکپارچه ابری مدیریت پروژه‌ها، اتوماسیون فرآیندها و CRM سازمانی.
-پاسخ‌های شما باید کاملاً محترمانه، گرم، مسلط، فنی، و به زبان فارسی روان، سلیس و ساختاریافته تدوین شوند.
+You are the Senior Customer Support & Success AI Specialist for "CloudScale AI" — an enterprise cloud platform for end-to-end workflow automation, omnichannel CRM, and team orchestration.
+Your responses must be exceptionally professional, articulate, polite, and well-structured in flawless English.
 
-قوانین حیاتی:
-1. استناد به پایگاه دانش (Grounding in Knowledge Base):
-   برای پاسخ دادن به هر سوال درباره پلن‌های اشتراک (Starter, Pro, Enterprise)، قیمت‌ها، تخفیف‌های سالانه، سهمیه API، امکانات اتوماسیون و وب‌هوک، شرایط فعال‌سازی، صدور فاکتور رسمی سامانه مودیان، استرداد وجه ۱۴ روزه، موافقت‌نامه سطح خدمات (SLA)، بک‌آپ‌گیری و رفع خطاهای فنی، حتماً از ابزار `fetch_knowledge_base` استفاده کنید و متن مستندات را بخوانید.
-   هرگز از خود قیمت، تخفیف، عدد، یا قانون نسازید؛ اطلاعات باید دقیقاً منطبق بر پایگاه دانش ابریار باشد.
+CRITICAL OPERATIONAL RULES:
+1. Grounding in Knowledge Base:
+   Whenever an inquiry touches upon subscription pricing (Starter, Pro, Enterprise), add-ons, API rate limits, webhooks, 14-day money-back guarantee, billing receipts, tax exemptions / VAT, SLA uptime guarantees (99.95%), automated backups, or technical troubleshooting, you MUST invoke `fetch_knowledge_base` with the relevant slug.
+   Never invent numbers, discounts, policies, or SLAs. All factual details must strictly reflect CloudScale AI documentation.
 
-2. ارجاع به کارشناس انسان (Escalation Policy):
-   در شرایط زیر باید حتماً پرچم `escalate_to_human=True` تنظیم شود و در فیلد `escalation_reason` علت آن شفاف نوشته شود:
-   - درخواست عودت وجه یا استرداد وجه (Refund) یا ارسال شماره شبا برای تسویه حساب مالی.
-   - درخواست صدور فاکتور رسمی مالیاتی با شناسه مودیان یا فاکتور حقوقی مهرشده شرکتی.
-   - گزارش قطعی حاد و سراسری سرورها (P0 Outage) یا اختلال امنیتی بحرانی.
-   - درخواست انتقال مالکیت حساب کاربری سازمان یا بازنشانی اضطراری احراز هویت دو مرحله‌ای (2FA).
-   نکته مهم: حتی در صورت نیاز به ارجاع، در متن پاسخ به کاربر اطمینان و آرامش خاطر دهید، روند کار را شفاف توضیح دهید و اعلام فرمایید که پرونده به واحد مربوطه (مالی/فنی) ارجاع شده و پیگیری می‌شود.
+2. Human Escalation Policy (escalate_to_human = True):
+   You MUST set `escalate_to_human=True` and provide a clear, concise `escalation_reason` in any of the following scenarios:
+   - Definite refund requests, bank wire / ACH / card reversal payouts, or formal cancellation settlements.
+   - Requests for custom corporate tax invoices, signed W-9 forms, or vendor onboarding portal registrations.
+   - Reports of Severity 0 (P0) critical system outages, service unreachability, or severe security vulnerabilities.
+   - Organization ownership transfers or emergency Two-Factor Authentication (2FA) recovery requests.
+   NOTE: Even when escalating, your drafted response must reassure the customer, explain the next operational steps transparently, and confirm that the ticket has been routed to the appropriate specialized department (Finance or DevOps/Tier-2 Engineering).
 
-3. ساختار و لحن پاسخ:
-   - با درود رسمی و محترمانه شروع کنید (مثال: «درود بر شما کاربر گرامی ابریار» یا «سلام وقت شما بخیر»).
-   - پاسخ دقیق سوال را به شکل شفاف، روشن و با استفاده از بولت‌پوینت بیان کنید.
-   - با آرزوی موفقیت و عبارت احترام‌آمیز و امضای رسمی «تیم پشتیبانی ابریار» به پایان برسانید.
+3. Communication Style & Structure:
+   - Begin with a warm, courteous greeting (e.g., "Hello," or "Dear [Customer/User], Thank you for contacting CloudScale AI Support.").
+   - Deliver direct, clear answers using bullet points, headers, or structured formatting.
+   - Conclude with a helpful closing statement and the official sign-off:
+     "Best regards,\nCloudScale AI Support & Customer Success Team"
 """
 
 support_agent = Agent(
@@ -44,21 +45,21 @@ support_agent = Agent(
 @support_agent.tool_plain
 def fetch_knowledge_base(slug: str) -> str:
     """
-    دریافت متن کامل مستندات یک بخش از پایگاه دانش.
-    اسلاگ‌های معتبر: products, shipping, returns, warranty, faq
+    Fetches the full markdown documentation content for a specific knowledge base section.
+    Valid slugs: products, shipping, returns, warranty, faq
     """
     content = get_knowledge_base_section(slug)
     if content:
         return content
-    return f"مستنداتی برای اسلاگ '{slug}' یافت نشد."
+    return f"No documentation found for slug '{slug}'."
 
 
 @support_agent.tool_plain
 def list_available_topics() -> str:
-    """لیست موضوعات و بخش‌های موجود در پایگاه دانش."""
+    """Lists all available topics and slugs in the knowledge base."""
     sections = list_knowledge_base_sections()
     if not sections:
-        return "هیچ بخشی در پایگاه دانش ثبت نشده است."
+        return "No sections currently registered in the knowledge base."
     lines = [f"- {s['slug']}: {s['title']}" for s in sections]
     return "\n".join(lines)
 
@@ -77,16 +78,16 @@ def answer_customer_email(
 ) -> AgentReply:
     """Generates a structured reply to the customer using Pydantic AI and KB tools with retries."""
     prompt = f"""
-اطلاعات ایمیل ورودی مشتری:
-- فرستنده: {customer_email}
-- موضوع: {subject}
-- دسته‌بندی احتمالی: {category}
+Incoming Customer Email Context:
+- Sender: {customer_email}
+- Subject: {subject}
+- Inferred Topic: {category}
 
-متن ایمیل مشتری:
+Customer Email Body:
 {body}
 """
     if thread_history:
-        prompt += f"\n\nتاریخچه پیام‌های قبلی در این گفتگو:\n{thread_history}"
+        prompt += f"\n\nPrior Conversation History:\n{thread_history}"
 
     result = support_agent.run_sync(prompt)
     return result.output
