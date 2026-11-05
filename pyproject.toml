@@ -1,0 +1,16 @@
+[project]
+name = "ai-customer-support"
+version = "0.1.0"
+description = "Autonomous AI Customer Support System with Gemini & Supabase"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.0",
+    "pydantic-settings>=2.6.0",
+    "python-dotenv>=1.0.1",
+    "supabase>=2.10.0",
+    "google-api-python-client>=2.154.0",
+    "google-auth-oauthlib>=1.2.1",
+    "pydantic-ai>=0.0.18",
+    "pydantic-evals>=0.0.1",
+]
